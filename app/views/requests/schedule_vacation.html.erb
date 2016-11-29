@@ -37,7 +37,18 @@
         <td><%= allotment.date.strftime("%a %D") %></td>
         <td><%= days_available_display %></td>
 
-        <%if day_already_taken == "vacation"%>
+        <%if allotment.date < Date.today && day_already_taken == "vacation"%>
+          <td colspan ="3" class="text-center">  Vacation Day Taken </td>
+          <td colspan ="3"></td>
+
+        <%elsif allotment.date < Date.today && day_already_taken == "personal day"%>
+          <td colspan = "3"></td>
+          <td colspan ="3" class="text-center">  Personal Day Taken </td>
+
+        <%elsif allotment.date < Date.today %>
+          <td colspan ="6"> </td>
+
+        <%elsif day_already_taken == "vacation"%>
         <td colspan ="3"> <a href = "/delete_request/<%=user_request_id%>" class="btn btn-warning btn-block"> Give Back Vacation Day </a> </td>
         <td colspan = "3"> </td>
 
@@ -63,7 +74,7 @@
         <td><a href ="/add_vacation_day?length=AM_Half_Day&allotment_id=<%=allotment.id%>" class = "btn btn-success btn-block "> AM Half Day </a></td>
         <td><a href ="/add_vacation_day?length=PM_Half_Day&allotment_id=<%=allotment.id%>" class = "btn btn-success btn-block "> PM Half Day </a></td>
 
-        <td><div class="btn btn-danger"> Full Day Unavailable </div></td>
+        <td><a href ="/add_personal_day?length=Full_Day&allotment_id=<%=allotment.id%>" class = "btn btn-primary btn-block"> Full Day </a> </td>
         <td><a href ="/add_personal_day?length=AM_Half_Day&allotment_id=<%=allotment.id%>" class = "btn btn-primary btn-block"> AM Half Day </a></td>
         <td><a href ="/add_personal_day?length=PM_Half_Day&allotment_id=<%=allotment.id%>" class = "btn btn-primary btn-block"> PM Half Day </a></td>
 

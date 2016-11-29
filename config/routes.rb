@@ -11,8 +11,7 @@ root "requests#show"
 
 
   # UPDATE
-  get "/allotments/:id/edit", :controller => "allotments", :action => "edit"
-  post "/update_allotment/:id", :controller => "allotments", :action => "update"
+  post "/update_allotment/", :controller => "allotments", :action => "update"
 
   # DELETE
   get "/delete_allotment/:id", :controller => "allotments", :action => "destroy"

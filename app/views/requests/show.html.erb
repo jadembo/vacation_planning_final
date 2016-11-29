@@ -1,5 +1,7 @@
 <div class = "page-header">
-  <h3> My Requests </h3>
+  <h3> My Requests
+  <a href="/schedule_vacation" class="btn btn-lg btn-success"><i class="fa fa-plus" aria-hidden="true"></i></a>
+  </h3>
 </div>
 
 <div class="row">
@@ -18,7 +20,9 @@
         <td><%= request.length.titlecase %></td>
         <td><%= request.request_type.titlecase %></td>
         <td>
+          <%if request.allotment.date > Date.today%>
           <a href="/delete_request/<%= request.id %>" class="btn btn-danger" rel="nofollow">Give Back Day</a>
+          <%end%>
         </td>
       </tr>
       <% end %>

@@ -28,11 +28,6 @@ class AllotmentsController < ApplicationController
     end
   end
 
-  def edit
-    @allotment = Allotment.find(params[:id])
-
-    render("allotments/edit.html.erb")
-  end
 
   def update
     @allotment = Allotment.find(params[:id])
@@ -47,7 +42,7 @@ class AllotmentsController < ApplicationController
     if save_status == true
       redirect_to("/my_allotments", :notice => "Allotment updated successfully.")
     else
-      render("allotments/edit.html.erb")
+      redirect_to(:back)
     end
   end
 
