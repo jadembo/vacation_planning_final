@@ -7,7 +7,6 @@ root "requests#show"
   post "/create_allotment", :controller => "allotments", :action => "create"
 
   # READ
-  get "/allotments", :controller => "allotments", :action => "index"
   get "/my_allotments", :controller => "allotments", :action => "show"
 
 
@@ -71,6 +70,6 @@ root "requests#show"
   #------------------------------
 
   devise_for :users
-  
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
