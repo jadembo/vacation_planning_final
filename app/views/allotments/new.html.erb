@@ -50,13 +50,8 @@
       </div>
 
       <!-- Label and input for department_id -->
-      <div class="form-group">
-        <label for="department_id" class="control-label">
-          Department
-        </label>
+        <input type="hidden" id="department_id" name="department_id" placeholder="Department" class="form-control" value="<%= current_user.department_id %>">
 
-        <%= select_tag(:department_id, options_from_collection_for_select(Department.all, :id, :department_name, @allotment.department_id), :class => "form-control")%>
-      </div>
 
       <button class="btn btn-success">
         Create Allotment
