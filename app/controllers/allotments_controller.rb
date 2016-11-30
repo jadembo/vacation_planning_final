@@ -51,10 +51,8 @@ class AllotmentsController < ApplicationController
 
     @allotment.destroy
 
-    if URI(request.referer).path == "/allotments/#{@allotment.id}"
+
       redirect_to("/my_allotments", :notice => "Allotment deleted.")
-    else
-      redirect_to(:back, :notice => "Allotment deleted.")
-    end
+    
   end
 end
