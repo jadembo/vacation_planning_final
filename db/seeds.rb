@@ -8,16 +8,39 @@
 
 require 'csv'
 
-csv_text = File.read(Rails.root.join('lib','seeds','requests.csv'))
+csv_text = File.read(Rails.root.join('lib','seeds','role.csv'))
 csv = CSV.parse(csv_text,:headers=>true, :encoding => 'ISO-8859-1')
 csv.each do |row|
-  r=Request.new
-  r.user_id = row['user_id']
-  r.allotment_id = row['allotment_id']
-  r.length = row['length']
-  r.request_type = row['request_type']
+  r=Role.new
+  r.role_name = row['role_name']
   r.save
 
-  puts "#{r.user_id}, #{r.allotment_id} saved"
+  puts "#{r.role_name} saved"
+
+end
+
+csv_text = File.read(Rails.root.join('lib','seeds','department.csv'))
+csv = CSV.parse(csv_text,:headers=>true, :encoding => 'ISO-8859-1')
+csv.each do |row|
+  r=Department.new
+  r.department_name = row['department_name']
+  r.save
+
+  puts "#{r.department_name} saved"
+
+end
+
+  csv_text = File.read(Rails.root.join('lib','seeds','allotment.csv'))
+  csv = CSV.parse(csv_text,:headers=>true, :encoding => 'ISO-8859-1')
+  csv.each do |row|
+    r=Allotment.new
+    r.date = row['date']
+    r.days_available = row['days_available']
+    r.role_id = row['role_id']
+    r.department_id = row['department_id']
+    r.save
+
+    puts "#{r.date} saved"
+
 
 end
