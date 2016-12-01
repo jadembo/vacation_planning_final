@@ -43,7 +43,7 @@
           <% if current_user == nil %>
           <% elsif current_user.role.role_name.downcase == 'supervisor'%>
             <li><a href="/my_allotments">Set Vacation Allotments</a></li>
-            <li><a href="/my_departments_requests">View Scheduled Vacation</a></li>
+            <li><a href="/my_departments_requests">View Department Vacation</a></li>
           <%end%>
             <li><a href="/schedule_vacation">Schedule a Vacation Day</a></li>
             <li><a href="/my_requests">My Requests</a></li>
