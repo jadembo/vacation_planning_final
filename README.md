@@ -11,3 +11,5 @@ When first cloning app, please do the following
 
 4) Create a new user => role = supervisor
   * Log-in and play around with allotments and view department vacation
+
+Enjoy!
